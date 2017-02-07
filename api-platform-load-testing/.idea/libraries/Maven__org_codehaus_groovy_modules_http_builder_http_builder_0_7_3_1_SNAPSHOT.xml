@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.codehaus.groovy.modules.http-builder:http-builder:0.7.3.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/modules/http-builder/http-builder/0.7.3.1-SNAPSHOT/http-builder-0.7.3.1-20170123.211010-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/modules/http-builder/http-builder/0.7.3.1-SNAPSHOT/http-builder-0.7.3.1-20170123.211010-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/modules/http-builder/http-builder/0.7.3.1-SNAPSHOT/http-builder-0.7.3.1-20170123.211010-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

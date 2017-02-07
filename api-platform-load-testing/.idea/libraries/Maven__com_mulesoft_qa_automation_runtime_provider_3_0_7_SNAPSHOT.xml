@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.mulesoft.qa.automation:runtime-provider:3.0.7-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mulesoft/qa/automation/runtime-provider/3.0.7-SNAPSHOT/runtime-provider-3.0.7-20170117.204328-13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mulesoft/qa/automation/runtime-provider/3.0.7-SNAPSHOT/runtime-provider-3.0.7-20170117.204328-13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mulesoft/qa/automation/runtime-provider/3.0.7-SNAPSHOT/runtime-provider-3.0.7-20170117.204328-13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

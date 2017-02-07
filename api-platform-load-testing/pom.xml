@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mulesoft.performance</groupId>
+    <artifactId>api-platform-load-testing</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <gateway.version>2.2.1</gateway.version>
+
+        <aspectj.version>1.8.4</aspectj.version>
+        <allure.version>1.5.0</allure.version>
+        <allure.results.directory>${project.build.directory}/target/allure-results</allure.results.directory>
+        <alluremaven.version>2.5</alluremaven.version>
+
+        <plugin.dependency.version>2.8</plugin.dependency.version>
+        <plugin.surefire.version>2.18.1</plugin.surefire.version>
+        <plugin.antrun.version>1.7</plugin.antrun.version>
+
+        <env.portal>parametric_org</env.portal>
+        <env.gateway>local</env.gateway>
+        <env.cloudhub>qa2_gateway_382</env.cloudhub>
+
+        <env.hostToTest>23.21.206.49:8887/api</env.hostToTest>
+
+        <url.platform>https://qax.anypoint.mulesoft.com/apiplatform</url.platform>
+        <url.core.services>https://qax.anypoint.mulesoft.com/accounts</url.core.services>
+        <url.contract.cache.service>https://qax.anypoint.mulesoft.com/apigateway/ccs</url.contract.cache.service>
+        <url.cloudhub></url.cloudhub>
+        <url.analytics>https://analytics-ingest.qax.anypoint.mulesoft.com</url.analytics>
+        <organization.characteristics>ping_federate_organization</organization.characteristics>
+        <organization.owner.username>federated_external</organization.owner.username>
+        <organization.owner.password>federated_external</organization.owner.password>
+
+        <qa.dashboard.publish>false</qa.dashboard.publish>
+
+        <onpremise.port.test.http>8887</onpremise.port.test.http>
+        <onpremise.port.test.https>8082</onpremise.port.test.https>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_core</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_components</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_java</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_http</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <!--Mule dependencies-->
+        <dependency>
+            <groupId>com.mulesoft.anypoint</groupId>
+            <artifactId>api-platform-client</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.qa.automation</groupId>
+            <artifactId>runtime-provider</artifactId>
+            <version>3.0.7-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mulesoft.qa.automation</groupId>
+            <artifactId>automation-framework</artifactId>
+            <version>2.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--Nahuel Added dependencies-->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.semver</groupId>
+            <artifactId>api</artifactId>
+            <version>0.9.33</version>
+        </dependency>
+    </dependencies>
+
+
+    <name>api-platform-load-testing</name>
+    <url>http://maven.apache.org</url>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mulesoft.performance.jmeter.ExecuteJMeterTestPlan</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
