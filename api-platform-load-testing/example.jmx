@@ -65,9 +65,9 @@
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <stringProp name="HTTPSampler.domain">23.21.206.49</stringProp>
+          <stringProp name="HTTPSampler.domain">54.83.54.127</stringProp>
           <intProp name="HTTPSampler.port">8887</intProp>
-          <stringProp name="HTTPSampler.path">/api</stringProp>
+          <stringProp name="HTTPSampler.path">/api?client_id=a170a809f833462b88913237274af748&amp;client_secret=7FeECdD678ed4B32bD4A069F128CE42a</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

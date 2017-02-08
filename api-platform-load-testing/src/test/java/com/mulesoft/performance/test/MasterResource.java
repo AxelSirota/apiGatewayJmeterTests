@@ -13,7 +13,6 @@ package com.mulesoft.performance.test;
 import com.mulesoft.anypoint.client.*;
 import com.mulesoft.anypoint.client.entity.ApiData;
 import com.mulesoft.anypoint.client.exception.FunctionalException;
-import com.mulesoft.performance.misc.FunctionalUtil;
 import com.mulesoft.performance.setup.environment.Characteristic;
 import com.mulesoft.performance.setup.environment.Platform;
 import com.mulesoft.performance.setup.environment.Runtime;
@@ -32,15 +31,13 @@ import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-
 
 public abstract class MasterResource {
     protected static final Logger LOG = Logger.getLogger("Message");
 
-    public static final String KEY_PLATFORM = "portal_env";
-    public static final String KEY_RUNTIME_LOCATION = "gateway_env";
-    public static final String KEY_RUNTIME = "cloudhub_env"; // TODO(nahuel): Refactor the key values to reflect actual runtime names.
+    public static final String KEY_PLATFORM = "env.portal";
+    public static final String KEY_RUNTIME_LOCATION = "env.gateway";
+    public static final String KEY_RUNTIME = "env.cloudhub"; // TODO(nahuel): Refactor the key values to reflect actual runtime names.
 
 
     // Used to obfuscate passwords and sensitive information.
@@ -51,7 +48,7 @@ public abstract class MasterResource {
             (byte) 0xde, (byte) 0x33, (byte) 0x10, (byte) 0x12,
     };
 
-    protected static final long TIMEOUT_IN_MILLIS = 180000; // Standard timeout.
+    protected static final long TIMEOUT_IN_MILLIS = 120000; // Standard timeout.
 
     protected static Client client;
     protected static PlatformManager platformManager;
@@ -94,8 +91,6 @@ public abstract class MasterResource {
     public static final String TLS = "TLSv1.2"; // Used by calls performed within the tests against a HTTPs endpoint.
 
     static {
-        validateSetup();
-
         runtimeLocation = getRuntimeLocation();
 
         initAutomationDashboard();
@@ -120,6 +115,8 @@ public abstract class MasterResource {
         CANONICAL_REDIRECT_URLS.add(CANONICAL_REDIRECT_URL);
         CANONICAL_REDIRECT_URLS.add(CANONICAL_REDIRECT_URL + "/fake1");
         CANONICAL_REDIRECT_URLS.add(CANONICAL_REDIRECT_URL + "/fake2");
+
+        REDIRECT_URI = CANONICAL_REDIRECT_URLS;
 
         // Hack to solve weird issues when running Rate Limit based tests on Cluster.
         if (RuntimeLocation.REMOTE_QA_LAB_NODE_SLAVE.equals(runtimeLocation) || (runtimeLocation.equals(RuntimeLocation.REMOTE_CLUSTER_SECONDARY_USING_ARM))) {
@@ -165,6 +162,28 @@ public abstract class MasterResource {
         }
     }
 
+//    /**
+//     * Overrides any command line environment setup. Use this as a convenience method to run the suite on an IDE.
+//     */
+//    private static void parametricOrganizationSetup(String platformUrl, String coreServicesUrl, String contractCacheServiceUrl, String username, String password, String orgCharacteristics) {
+//        System.setProperty(KEY_ORGANIZATION_OWNER_USERNAME, username);
+//        System.setProperty(KEY_ORGANIZATION_OWNER_PASSWORD, password);
+//        System.setProperty(KEY_BASE_URL_PLATFORM, platformUrl);
+//        System.setProperty(KEY_BASE_URL_CORE_SERVICES, coreServicesUrl);
+//        System.setProperty(KEY_BASE_URL_CONTRACT_CACHE_SERVICES, contractCacheServiceUrl);
+//        System.setProperty(KEY_ORGANIZATION_CHARACTERISTICS, orgCharacteristics);
+//    }
+//
+//    /**
+//     * Overrides any command line environment setup. Use this as a convenience method to run the suite on an IDE.
+//     */
+//    private static void ideSetup(Platform platform, RuntimeLocation runtimeLocation, Runtime runtime) {
+//        System.setProperty(KEY_PLATFORM, platform.getEnvironment());
+//        System.setProperty(KEY_RUNTIME_LOCATION, runtimeLocation.getEnvironment());
+//        System.setProperty(KEY_RUNTIME, runtime.getEnvironment());
+//        System.setProperty(KEY_AUTOMATION_REPORT_ENV, AUTOMATION_REPORT_ENV_DEV);
+//    }
+
     public static String decrypt(String property) throws GeneralSecurityException, IOException {
         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBEWithMD5AndDES");
         SecretKey key = keyFactory.generateSecret(new PBEKeySpec(PASS_ENCRYPT_PBKEY));
@@ -196,21 +215,6 @@ public abstract class MasterResource {
     /**
      * Make sure that there are no mismatches between Portal and Gateway, otherwise CH and Remote tests will fail.
      */
-    private static void validateSetup() {
-        final Platform platform = Platform.fromString(System.getProperty(KEY_PLATFORM));
-        final Runtime gateway = Runtime.fromString(System.getProperty(KEY_RUNTIME));
-        Characteristic envType = null;
-        if (platform.getCharacteristics().contains(Characteristic.QA)) {
-            envType = Characteristic.QA;
-        } else if (platform.getCharacteristics().contains(Characteristic.STG)) {
-            envType = Characteristic.STG;
-        } else if (platform.getCharacteristics().contains(Characteristic.PROD)) {
-            envType = Characteristic.PROD;
-        }
-        if (envType != null) {
-            assertEquals(gateway.getEnvironmentType(), envType, "Gateway environment is correctly setup");
-        }
-    }
 
     private static void initAutomationDashboard() {
         System.setProperty(KEY_AUTOMATION_REPORT_PRODUCT, AUTOMATION_REPORT_PRODUCT_AGW_ID);
@@ -237,6 +241,6 @@ public abstract class MasterResource {
     }
 
     public static Runtime getRuntime() {
-        return Runtime.fromString(System.getProperty(KEY_RUNTIME));
+        return Runtime.fromString(System.getProperty(KEY_RUNTIME)); //"qa2_gateway_382");
     }
 }

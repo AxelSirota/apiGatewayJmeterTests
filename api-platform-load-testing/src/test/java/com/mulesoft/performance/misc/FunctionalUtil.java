@@ -12,7 +12,6 @@ package com.mulesoft.performance.misc;
 
 import com.mulesoft.anypoint.client.exception.FunctionalException;
 import com.mulesoft.anypoint.client.util.MuleResponse;
-import com.mulesoft.performance.setup.environment.RuntimeLocation;
 import de.svenjacobs.loremipsum.LoremIpsum;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -35,14 +34,13 @@ import org.apache.log4j.Logger;
 import org.semver.Version;
 
 import javax.net.ssl.SSLContext;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static com.jayway.restassured.RestAssured.given;
 import static com.mulesoft.anypoint.client.util.FunctionalUtil.logResponseAndGetContent;
-import static com.mulesoft.performance.test.MasterResource.*;
+import static com.mulesoft.performance.test.MasterResource.HTTP_CODE_ERRORS_START;
+import static com.mulesoft.performance.test.MasterResource.TLS;
 import static org.testng.Assert.fail;
 
 public final class FunctionalUtil {
@@ -52,8 +50,8 @@ public final class FunctionalUtil {
     private static final Random RANDOM = new Random();
     private static final char[] CHARS = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
-    private static final long TIMEOUT_IN_MILLIS = 180000;
-    public static final long WAIT_STATE_BOUNDARY_IN_MILLIS = 500;
+    private static final long TIMEOUT_IN_MILLIS = 120000;
+    public static final long WAIT_STATE_BOUNDARY_IN_MILLIS = 10000;
 
     private FunctionalUtil() {
     }

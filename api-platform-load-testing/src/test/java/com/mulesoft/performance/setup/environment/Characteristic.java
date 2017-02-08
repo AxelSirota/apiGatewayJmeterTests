@@ -16,13 +16,8 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 public enum Characteristic {
-    ANALYTICS ("analytics"),
-    PAMS_ORGANIZATION ("pams_organization"),
-    MOCKED_PAMS ("mocked_pams"),
-    MOCKED_ANALYTICS("mocked_analytics"),
     FEDERATED_ORGANIZATION("federated_organization"),
     PING_FEDERATE_ORGANIZATION("ping_federate_organization"),
-    OPEN_AM_ORGANIZATION("open_am_organization"),
     QA("qa"),
     STG("stg"),
     PROD("prod");

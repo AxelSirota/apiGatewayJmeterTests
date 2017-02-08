@@ -148,12 +148,11 @@ public enum Runtime {
 
     @Override
     public String toString() {
-        return String.format("Environment: %s, API Gateway version: %s, Agent version : %s, Cloudhub label: %s, Test App: %s working with RAML: %s",
+        return String.format("Environment: %s, API Gateway version: %s, Agent version : %s, Cloudhub label: %s, working with RAML: %s",
                 environmentType == null ? null : environmentType.getValue(),
                 getVersion() == null ? "VERSION_DEFAULT" :  getVersion(),
                 getAgentVersion(),
                 getCloudhubLabel(),
-                getScenario().getApplicationFullPath(),
                 getRamlVersion());
     }
 

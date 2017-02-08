@@ -1,62 +1,41 @@
-2017/01/27 14:17:42 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
-2017/01/27 14:17:42 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/01/27 14:17:42 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/01/27 14:17:42 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/01/27 14:17:42 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2017/01/27 14:17:42 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
-2017/01/27 14:17:42 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
-2017/01/27 14:17:43 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
-2017/01/27 14:17:43 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
-2017/01/27 14:17:43 INFO  - jmeter.save.SaveService: Using SaveService properties version 3.1 
-2017/01/27 14:17:43 INFO  - jmeter.save.SaveService: All converter versions present and correct 
-2017/01/27 14:17:43 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
-2017/01/27 14:17:44 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2017/01/27 14:17:44 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2017/01/27 14:17:44 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
-2017/01/27 14:17:44 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
-2017/01/27 14:17:44 WARN  - jmeter.engine.util.CompoundVariable: Did not find any functions 
-2017/01/27 14:17:44 INFO  - jmeter.services.FileServer: Default base='/Users/axelsirota/Performance/jmeter-demo/api-platform-load-testing' 
-2017/01/27 14:17:44 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
-2017/01/27 14:17:44 INFO  - jmeter.engine.StandardJMeterEngine: Starting 10 threads for group Thread Group. 
-2017/01/27 14:17:44 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
-2017/01/27 14:17:44 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 10 ramp-up 1 perThread 100.0 delayedStart=false 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
-2017/01/27 14:17:44 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
-2017/01/27 14:17:44 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
-2017/01/27 14:17:44 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = BA-ASIROTA-OSX.local 
-2017/01/27 14:17:44 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
-2017/01/27 14:17:44 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
-2017/01/27 14:17:44 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
-2017/01/27 14:17:44 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
-2017/01/27 14:17:44 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-2 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-3 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-4 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-5 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-6 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-7 
-2017/01/27 14:17:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-8 
-2017/01/27 14:17:45 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-9 
-2017/01/27 14:17:45 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-10 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-1 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-3 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-3 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-5 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-5 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-2 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-2 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-9 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-9 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-6 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-6 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-7 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-7 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-10 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-10 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-8 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-4 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-8 
-2017/01/27 14:17:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-4 
-2017/01/27 14:17:54 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
-2017/01/27 14:17:54 INFO  - jmeter.reporters.Summariser: summary =    504 in 00:00:10 =   49.3/s Avg:   190 Min:   157 Max:   457 Err:     0 (0.00%) 
+2017/02/08 18:05:15 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2017/02/08 18:05:15 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2017/02/08 18:05:15 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2017/02/08 18:05:15 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2017/02/08 18:05:15 INFO  - jmeter.engine.StandardJMeterEngine: Starting 10 threads for group Thread Group. 
+2017/02/08 18:05:15 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2017/02/08 18:05:15 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 10 ramp-up 1 perThread 100.0 delayedStart=false 
+2017/02/08 18:05:15 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2017/02/08 18:05:15 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2017/02/08 18:05:15 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2017/02/08 18:05:15 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-2 
+2017/02/08 18:05:15 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-3 
+2017/02/08 18:05:15 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-4 
+2017/02/08 18:05:15 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-5 
+2017/02/08 18:05:15 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-6 
+2017/02/08 18:05:16 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-7 
+2017/02/08 18:05:16 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-8 
+2017/02/08 18:05:16 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-9 
+2017/02/08 18:05:16 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-10 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-3 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-3 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-4 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-4 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-6 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-6 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-2 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-2 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-8 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-8 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-9 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-9 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-7 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-7 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-1 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-5 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-5 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Stopping because end time detected by thread: Thread Group 1-10 
+2017/02/08 18:05:25 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-10 
+2017/02/08 18:05:25 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2017/02/08 18:05:25 INFO  - jmeter.reporters.Summariser: summary =    524 in 00:00:10 =   50.2/s Avg:   183 Min:   154 Max:   400 Err:   524 (100.00%) 

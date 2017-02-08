@@ -13,6 +13,7 @@ package com.mulesoft.performance.test.policy.clientidenforcement;
 import com.mulesoft.anypoint.client.entity.ApiData;
 import com.mulesoft.anypoint.client.entity.ApplicationData;
 import com.mulesoft.anypoint.client.entity.GrantType;
+import com.mulesoft.performance.jmeter.JMeterTestPlan;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -32,7 +33,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
     private String endpoint;
     private ApiData apiData;
 
-    private static final String APP_NAME_PREFIX = "zTest ClientID AppR ";
+    private static final String APP_NAME_PREFIX = "pTest ClientID AppPerf ";
 
     private GrantType[] grantTypes = {GrantType.AUTHORIZATION_CODE, GrantType.IMPLICIT, GrantType.PASSWORD};
 
@@ -40,7 +41,8 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
 
     @BeforeClass
     public void setup() {
-        endpoint = "http://23.21.206.49:8887/api";//"http://0.0.0.0:8081/gateway/clientidenforcement/path1");
+//        endpoint = "http://23.21.206.49:8887/api";//"http://0.0.0.0:8081/gateway/clientidenforcement/path1");
+        endpoint = "http://54.83.54.127:8887/api";//"http://0.0.0.0:8081/gateway/clientidenforcement/path1");
         apiData = ApiData.getApiCredentials(platformEnvironment, "PabloTestAPI", "1.0");//, API_NAME, API_VERSION_REGULAR);
         platformManager.resetApi(apiData);
         platformManager.removeAllApplicationsWithPrefix(APP_NAME_PREFIX);
@@ -65,207 +67,20 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         logResponseAndGetContent(verifyCall(policyManager.applyClientIdEnforcementPolicy(apiData, clientIdExpression, clientSecretExpression), HttpStatus.SC_CREATED, "Create Policy"));
 
         final ApplicationData appData = platformManager.createApplicationClientWithPrefixAndRegister(APP_NAME_PREFIX, REDIRECT_URI, grantTypes, apiData);
-        final ApplicationData appDataNotRegistered = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
 
         waitUntilEndpointCondition(endpoint, HttpStatus.SC_FORBIDDEN);
         waitUntilSuccessByQuery(endpoint, appData);
-
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance(appData.getClientId(), null));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance(null, appData.getClientSecretId()));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance(appData.getClientId(), "bla1233211321321"));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance("bla1233211321321", appData.getClientSecretId()));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance("bla1233211321321", "bla1233211321321"));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstanceEmpty());
-
-        checkForbiddenByQuery(endpoint, appDataNotRegistered);
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), null));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance(null, appDataNotRegistered.getClientSecretId()));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), "bla1233211321321"));
-        checkForbiddenByQuery(endpoint, ApplicationData.getInstance("bla1233211321321", appDataNotRegistered.getClientSecretId()));
-
         checkSuccessByQuery(endpoint, appData);
+        final JMeterTestPlan jmeter = new JMeterTestPlan(1, 1, 10, 8887, "54.83.54.127", "GET");
+        try {
+            jmeter.runJmeter(appData.getClientId(), appData.getClientSecretId());
+        } catch (Exception e) {
+            System.err.println("JmeterException: " + e.getMessage());
+        }
 
         platformManager.revokeApplicationContract(apiData, appData.getContractId());
         waitUntilFailByQuery(endpoint, appData);
         checkForbiddenByQuery(endpoint, appData);
-        checkForbiddenByQuery(endpoint, appDataNotRegistered);
-
-        // TODO(nahuel): Create another API and check that although the same app is registered there, is is not affected by the policy applied on the other API.
-
-        // Create not registered app.
-        final ApplicationData appAnotherClient = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
-        checkForbiddenByQuery(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.restoreApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Restore application contract");
-        waitUntilSuccessByQuery(endpoint, appData);
-
-        checkSuccessByQuery(endpoint, appData);
-        checkForbiddenByQuery(endpoint, appDataNotRegistered);
-        checkForbiddenByQuery(endpoint, appAnotherClient);
-
-        logResponseAndGetContent(verifyCall(platformManager.registerApplication(apiData.getOrganizationId(), apiData.getApiVersionId(), appAnotherClient.getId()), HttpStatus.SC_CREATED, "Register Application"));
-
-        waitUntilSuccessByQuery(endpoint, appAnotherClient);
-
-        checkSuccessByQuery(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.revokeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Revoke application contract");
-        waitUntilFailByQuery(endpoint, appData);
-
-        checkSuccessByQuery(endpoint, appAnotherClient);
-        checkForbiddenByQuery(endpoint, appData);
-        checkForbiddenByQuery(endpoint, appDataNotRegistered);
-        checkForbiddenByQuery(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.removeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_NO_CONTENT, "Remove application contract");
-        checkSuccessByQuery(endpoint, appAnotherClient);
-        checkForbiddenByQuery(endpoint, appData);
-        checkForbiddenByQuery(endpoint, appDataNotRegistered);
-        checkForbiddenByQuery(endpoint, appAnotherClient);
-    }
-
-    @Test(description= "Check Client ID enforcement with client ID and client secret provided as TCP headers, on HTTP endpoint")
-    public void clientIdEnforcementPolicyOnRegularEndpointUsingGetAndHeaderExpression() {
-        final String clientIdExpression = "#[message.inboundProperties['client_id']]";
-        final String clientSecretExpression = "#[message.inboundProperties['client_secret']]";
-
-        logResponseAndGetContent(verifyCall(policyManager.applyClientIdEnforcementPolicy(apiData, clientIdExpression, clientSecretExpression), HttpStatus.SC_CREATED, "Create Policy"));
-
-        final ApplicationData appData = platformManager.createApplicationClientWithPrefixAndRegister(APP_NAME_PREFIX, REDIRECT_URI, grantTypes, apiData);
-        final ApplicationData appDataNotRegistered = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
-        waitUntilEndpointCondition(endpoint, HttpStatus.SC_FORBIDDEN);
-        waitUntilSuccessByHeader(endpoint, appData);
-
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(appData.getClientId(), null));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(null, appData.getClientSecretId()));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(appData.getClientId(), "bla1233211321321"));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance("bla1233211321321", appData.getClientSecretId()));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance("bla1233211321321", "bla1233211321321"));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstanceEmpty());
-
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), null));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(null, appDataNotRegistered.getClientSecretId()));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), "bla1233211321321"));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance("bla1233211321321", appDataNotRegistered.getClientSecretId()));
-
-        checkSuccessByHeader(endpoint, appData);
-
-        platformManager.revokeApplicationContract(apiData, appData.getContractId());
-        waitUntilFailByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-
-        // TODO(nahuel): Create another API and check that although the same app is registered there, is is not affected by the policy applied on the other API.
-
-        // Create not registered app.
-        final ApplicationData appAnotherClient = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
-        checkForbiddenByHeader(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.restoreApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Restore application contract");
-        waitUntilSuccessByHeader(endpoint, appData);
-
-        checkSuccessByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkForbiddenByHeader(endpoint, appAnotherClient);
-
-        logResponseAndGetContent(verifyCall(platformManager.registerApplication(apiData.getOrganizationId(), apiData.getApiVersionId(), appAnotherClient.getId()), HttpStatus.SC_CREATED, "Register Application"));
-
-        waitUntilSuccessByHeader(endpoint, appAnotherClient);
-
-        checkSuccessByHeader(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.revokeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Revoke application contract");
-        waitUntilFailByHeader(endpoint, appData);
-
-        checkSuccessByHeader(endpoint, appAnotherClient);
-        checkForbiddenByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkForbiddenByHeader(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.removeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_NO_CONTENT, "Remove application contract");
-        checkSuccessByHeader(endpoint, appAnotherClient);
-        checkForbiddenByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkForbiddenByHeader(endpoint, appAnotherClient);
-    }
-
-    @Test(description= "Check Client ID enforcement with client ID provided as TCP header and no client secret, on HTTP endpoint")
-    public void clientIdEnforcementPolicyOnRegularEndpointUsingGetAndHeaderExpressionWithoutSecret() {
-        final String clientIdExpression = "#[message.inboundProperties['client_id']]";
-        final String clientSecretExpression = null;
-
-        logResponseAndGetContent(verifyCall(policyManager.applyClientIdEnforcementPolicy(apiData, clientIdExpression, clientSecretExpression), HttpStatus.SC_CREATED, "Create Policy"));
-
-        final ApplicationData appData = platformManager.createApplicationClientWithPrefixAndRegister(APP_NAME_PREFIX, REDIRECT_URI, grantTypes, apiData);
-        waitFor(1000, "Wait to avoid 502 status codes from the platform");
-        final ApplicationData appDataNotRegistered = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
-        waitUntilEndpointCondition(endpoint, HttpStatus.SC_FORBIDDEN);
-        waitUntilSuccessByHeader(endpoint, appData);
-
-        checkSuccessByHeader(endpoint, ApplicationData.getInstance(appData.getClientId(), ""));
-        checkSuccessByHeader(endpoint, ApplicationData.getInstance(appData.getClientId(), null));
-
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(null, appData.getClientSecretId()));
-
-        checkSuccessByHeader(endpoint, ApplicationData.getInstance(appData.getClientId(), "bla1233211321321"));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance("bla1233211321321", appData.getClientSecretId()));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance("bla1233211321321", "bla1233211321321"));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstanceEmpty());
-
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), null));
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(null, appDataNotRegistered.getClientSecretId()));
-
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), "bla1233211321321"));
-
-        checkForbiddenByHeader(endpoint, ApplicationData.getInstance("bla1233211321321", appDataNotRegistered.getClientSecretId()));
-
-        checkSuccessByHeader(endpoint, appData);
-
-        platformManager.revokeApplicationContract(apiData, appData.getContractId());
-        waitUntilFailByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-
-        // TODO(nahuel): Create another API and check that although the same app is registered there, is is not affected by the policy applied on the other API.
-
-        // Create not registered app.
-        final ApplicationData appAnotherClient = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
-        checkForbiddenByHeader(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.restoreApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Restore application contract");
-        waitUntilSuccessByHeader(endpoint, appData);
-
-        checkSuccessByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkForbiddenByHeader(endpoint, appAnotherClient);
-
-        logResponseAndGetContent(verifyCall(platformManager.registerApplication(apiData.getOrganizationId(), apiData.getApiVersionId(), appAnotherClient.getId()), HttpStatus.SC_CREATED, "Register Application"));
-
-        waitUntilSuccessByHeader(endpoint, appAnotherClient);
-
-        checkSuccessByHeader(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.revokeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Revoke application contract");
-        waitUntilFailByHeader(endpoint, appData);
-
-        checkSuccessByHeader(endpoint, appAnotherClient);
-        checkForbiddenByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkSuccessByHeader(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.removeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_NO_CONTENT, "Remove application contract");
-        checkSuccessByHeader(endpoint, appAnotherClient);
-        checkForbiddenByHeader(endpoint, appData);
-        checkForbiddenByHeader(endpoint, appDataNotRegistered);
-        checkSuccessByHeader(endpoint, appAnotherClient);
     }
 
     @Test(description= "Check Client ID enforcement policy passing client ID and Secret as Basic Auth credentials")
@@ -273,59 +88,18 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         logResponseAndGetContent(verifyCall(policyManager.applyClientIdEnforcementPolicyAsBasicAuth(apiData), HttpStatus.SC_CREATED, "Create Policy"));
 
         final ApplicationData appData = platformManager.createApplicationClientWithPrefixAndRegister(APP_NAME_PREFIX, REDIRECT_URI, grantTypes, apiData);
-        final ApplicationData appDataNotRegistered = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
         waitUntilEndpointRestricted(endpoint);
         waitUntilSuccessByBasicAuth(endpoint, appData);
-
-        checkFailByBasicAuth(endpoint, ApplicationData.getInstance(appData.getClientId(), "bla1233211321321"));
-        checkFailByBasicAuth(endpoint, ApplicationData.getInstance("bla1233211321321", appData.getClientSecretId()));
-        checkFailByBasicAuth(endpoint, ApplicationData.getInstance("bla1233211321321", "bla1233211321321"));
-
-        checkFailByBasicAuth(endpoint, appDataNotRegistered);
-        checkFailByBasicAuth(endpoint, ApplicationData.getInstance(appDataNotRegistered.getClientId(), "bla1233211321321"));
-        checkFailByBasicAuth(endpoint, ApplicationData.getInstance("bla1233211321321", appDataNotRegistered.getClientSecretId()));
-
         checkSuccessByBasicAuth(endpoint, appData);
-
+        final JMeterTestPlan jmeter = new JMeterTestPlan(1, 1, 10, 8887, "54.83.54.127", "GET");
+        try {
+            jmeter.runJmeter(appData.getClientId(), appData.getClientSecretId());
+        } catch (Exception e) {
+            System.err.println("JmeterException: " + e.getMessage());
+        }
         platformManager.revokeApplicationContract(apiData, appData.getContractId());
         waitUntilFailByBasicAuth(endpoint, appData);
         checkFailByBasicAuth(endpoint, appData);
-        checkFailByBasicAuth(endpoint, appDataNotRegistered);
-
-        // TODO(nahuel): Create another API and check that although the same app is registered there, is is not affected by the policy applied on the other API.
-
-        // Create not registered app.
-        final ApplicationData appAnotherClient = platformManager.createApplicationClientWithPrefix(apiData.getOrganizationId(), APP_NAME_PREFIX, REDIRECT_URI, grantTypes);
-
-        checkFailByBasicAuth(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.restoreApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Restore application contract");
-        waitUntilSuccessByBasicAuth(endpoint, appData);
-
-        checkSuccessByBasicAuth(endpoint, appData);
-        checkFailByBasicAuth(endpoint, appDataNotRegistered);
-        checkFailByBasicAuth(endpoint, appAnotherClient);
-
-        logResponseAndGetContent(verifyCall(platformManager.registerApplication(apiData.getOrganizationId(), apiData.getApiVersionId(), appAnotherClient.getId()), HttpStatus.SC_CREATED, "Register Application"));
-
-        waitUntilSuccessByBasicAuth(endpoint, appAnotherClient);
-
-        checkSuccessByBasicAuth(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.revokeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_CREATED, "Revoke application contract");
-        waitUntilFailByBasicAuth(endpoint, appData);
-
-        checkSuccessByBasicAuth(endpoint, appAnotherClient);
-        checkFailByBasicAuth(endpoint, appData);
-        checkFailByBasicAuth(endpoint, appDataNotRegistered);
-        checkSuccessByBasicAuth(endpoint, appAnotherClient);
-
-        verifyCall(platformManager.removeApplicationContract(apiData, appData.getContractId()), HttpStatus.SC_NO_CONTENT, "Remove application contract");
-        checkSuccessByBasicAuth(endpoint, appAnotherClient);
-        checkFailByBasicAuth(endpoint, appData);
-        checkFailByBasicAuth(endpoint, appDataNotRegistered);
-        checkSuccessByBasicAuth(endpoint, appAnotherClient);
     }
 
     @Test(description= "Check Client ID enforcement policy passing client ID and Secret as Basic Auth credentials to more than 100 client apps")
@@ -349,10 +123,17 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         waitUntilEndpointCondition(endpoint, HttpStatus.SC_FORBIDDEN);
         waitUntilSuccessByHeader(endpoint, applications.get(applications.size() - 1));
 
+        LOG.info("About to check contract #" + applications.indexOf(applications.get(applications.size() - 1)) + ". Application: " + applications.get(applications.size() - 1));
+        final JMeterTestPlan jmeter = new JMeterTestPlan(1, 1, 10, 8887, "54.83.54.127", "GET");
+        try {
+            jmeter.runJmeter(applications.get(applications.size() - 1).getClientId(), applications.get(applications.size() - 1).getClientSecretId());
+        } catch (Exception e) {
+            System.err.println("JmeterException: " + e.getMessage());
+        }
+
         for (ApplicationData application : applications) {
-            LOG.info("About to check contract #" + applications.indexOf(application) + ". Application: " + application);
-            checkForbiddenByHeader(endpoint, ApplicationData.getInstance(application.getClientId(), "bla1233211321321"));
-            checkSuccessByHeader(endpoint, application);
+            LOG.info("About to revoke contract #" + applications.indexOf(application) + ". Application: " + application);
+            platformManager.revokeApplicationContract(apiData, application.getContractId());
         }
     }
 

@@ -19,99 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientIdEnforcementOnRegularTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientIdEnforcementOnRegularTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementOnRegularTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7072">
-              <caret line="272" column="5" lean-forward="false" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+            <state relative-caret-position="1447">
+              <caret line="131" column="9" lean-forward="false" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
               <folding>
-                <element signature="e#0#21917#0" expanded="true" />
+                <element signature="e#0#7742#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <marker date="1486489980000" expanded="true" signature="1632:2055" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="2105:2240" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="2501:6804" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="7023:11316" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="11550:15968" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="16135:19674" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="19878:21568" ph="{...}" />
-                <marker date="1486489980000" expanded="true" signature="21641:21914" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuntimeLocation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/RuntimeLocation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="200" column="13" lean-forward="true" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Platform.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Platform.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6047">
-              <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-              <folding>
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1205#1206#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Characteristic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Characteristic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-676">
-              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MasterResource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/MasterResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Clock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/Clock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/TimeFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1430">
-              <caret line="64" column="20" lean-forward="false" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-              <folding>
-                <marker date="1486488127000" expanded="true" signature="3514:3696" ph="..." />
               </folding>
             </state>
           </provider>
@@ -120,11 +35,65 @@
       <file leaf-file-name="ClientIdEnforcementBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="26" column="75" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JMeterTestPlan.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/JMeterTestPlan.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="93" column="18" lean-forward="false" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2541#2558#0" expanded="true" />
+                <element signature="e#2799#2815#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Clock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/Clock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MasterResource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/MasterResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1092">
+              <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FunctionalUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/FunctionalUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MuleCollector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/MuleCollector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="148" column="65" lean-forward="false" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="65" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,13 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/usr/local/Cellar/jmeter/3.1/bin/jmeter/bin</find>
-      <find>set</find>
-      <find>continue_forever</find>
-      <find>MasterResource</find>
-      <find>analytics</find>
-      <find>junit</find>
-      <find>apiplatform</find>
       <find>Runtime</find>
       <find>runtime</find>
       <find>com.mulesoft.apiplatform</find>
@@ -163,6 +125,20 @@
       <find>client</find>
       <find>exclusion</find>
       <find>RuntimeVersion</find>
+      <find>instantiate Cloudhub environment</find>
+      <find>KEY_</find>
+      <find>KEY_PLATFORM</find>
+      <find>KEY_RUNTIME</find>
+      <find>environmentMap</find>
+      <find>Path of test application</find>
+      <find>url.platform</find>
+      <find>KEY_ORGANIZATION_OWNER_USERNAME</find>
+      <find>KEY_BASE_URL_PLATFORM</find>
+      <find>createApplicationClient</find>
+      <find>23.21.206</find>
+      <find>Millis</find>
+      <find>500</find>
+      <find>jmeterProperties</find>
     </findStrings>
     <replaceStrings>
       <replace>performance</replace>
@@ -196,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/cors/CorsOnHttpsTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/analytics/AnalyticsOnRegularTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidfenforcement/ClientIdEnforcementOnRegularTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Characteristic.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/cors/CorsBase.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaUsingClusterOnRegularTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/baseline/RateLimitBase.java" />
@@ -204,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/OpenAm.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/oauth/TokenData.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/TokenData.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/ExecuteJMeterTestPlan.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/TimeFrame.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/Requires.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/RemoteRuntime.java" />
@@ -212,13 +186,17 @@
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementBase.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/CloudhubRuntime.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/Instance.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/FunctionalUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/TestExclusionListener.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/MasterResource.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Runtime.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementOnRegularTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Characteristic.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/RuntimeLocation.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Runtime.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Platform.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/MasterResource.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/FunctionalUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/ExecuteJMeterTestPlan.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementOnRegularTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/JMeterTestPlan.java" />
       </list>
     </option>
   </component>
@@ -232,13 +210,54 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="api-platform-load-testing" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="api-platform-load-testing" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
   <component name="MavenRunner">
+    <option name="environmentProperties">
+      <map>
+        <entry key="base.organization.characteristics" value="'ping_federate_organization'" />
+        <entry key="base.organization.owner.password" value="'federated_external'" />
+        <entry key="base.organization.owner.username" value="'federated_external'" />
+        <entry key="base.url.contract.cache.service" value="'https://qax.anypoint.mulesoft.com/apigateway/ccs' " />
+        <entry key="base.url.core.services" value="'https://qax.anypoint.mulesoft.com/accounts'" />
+        <entry key="base.url.platform" value="'https://qax.anypoint.mulesoft.com/apiplatform'" />
+        <entry key="cloudhub_env" value="qa2_gateway_382" />
+        <entry key="gateway_env" value="local" />
+        <entry key="portal_env" value="parametric_org" />
+      </map>
+    </option>
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="969" />
+    <option name="height" value="974" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -277,8 +296,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -384,6 +403,10 @@
               <option name="myItemId" value="setup" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="instance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -474,6 +497,10 @@
               <option name="myItemId" value="performance" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jmeter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -491,11 +518,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/com/mulesoft/performance" />
   </component>
@@ -515,7 +542,7 @@
       <recent name="$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet">
+  <component name="RunManager" selected="Remote.Mave  Debug">
     <configuration default="false" name="ExecuteJMeter.Pepe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -568,7 +595,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="ExecuteJMeterTestPlan.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="JMeterTestPlan.runJmeter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.mulesoft.performance.jmeter.*" />
@@ -579,8 +606,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.mulesoft.performance.jmeter" />
-      <option name="MAIN_CLASS_NAME" value="com.mulesoft.performance.jmeter.ExecuteJMeterTestPlan" />
-      <option name="METHOD_NAME" value="main" />
+      <option name="MAIN_CLASS_NAME" value="com.mulesoft.performance.jmeter.JMeterTestPlan" />
+      <option name="METHOD_NAME" value="runJmeter" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -604,24 +631,24 @@
       <module name="api-platform-load-testing" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.mulesoft.performance.test.policy.clientidfenforcement" />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="com.mulesoft.performance.test.policy.clientidenforcement" />
       <option name="MAIN_CLASS_NAME" value="com.mulesoft.performance.test.policy.clientidenforcement.ClientIdEnforcementOnRegularTest" />
       <option name="METHOD_NAME" value="clientIdEnforcementPolicyOnRegularEndpointUsingGet" />
-      <option name="GROUP_NAME" />
+      <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" value="" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
+        <value defaultName="moduleWithDependencies" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
+      <option name="PROPERTIES_FILE" value="$PROJECT_DIR$/parameters.properties" />
       <envs />
       <properties />
       <listeners />
@@ -828,6 +855,28 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -873,18 +922,31 @@
       <properties />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.ExecuteJMeter.Pepe" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ExecuteJMeter.main" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ExecuteJMeterTestPlan.main" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementAsBasicAuth" />
+    <configuration default="false" name="Mave  Debug" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5005" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Remote.Mave  Debug" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ExecuteJMeter.Pepe" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ExecuteJMeter.main" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.JMeterTestPlan.runJmeter" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" />
+      <item index="5" class="java.lang.String" itemvalue="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementAsBasicAuth" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" />
         <item index="1" class="java.lang.String" itemvalue="TestNG.ClientIdEnforcementOnRegularTest.clientIdEnforcementAsBasicAuth" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ExecuteJMeterTestPlan.main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.JMeterTestPlan.runJmeter" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ExecuteJMeter.main" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ExecuteJMeter.Pepe" />
       </list>
@@ -907,34 +969,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementAsBasicAuth - 2017.01.27 at 17h 18m 44s.xml">
-      <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementAsBasicAuth" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 16h 37m 57s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 16h 25m 55s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 17h 22m 42s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 16h 25m 58s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 17h 26m 17s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 16h 59m 26s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 17h 29m 10s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 16h 59m 59s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 17h 39m 08s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 17h 00m 12s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 18h 03m 10s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 17h 01m 39s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.01.27 at 18h 08m 12s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 17h 29m 04s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 11h 27m 52s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.08 at 09h 50m 02s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.07 at 14h 45m 34s.xml">
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.08 at 09h 58m 47s.xml">
+      <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="ClientIdEnforcementOnRegularTest_clientIdEnforcementPolicyOnRegularEndpointUsingGet - 2017.02.08 at 09h 59m 06s.xml">
       <configuration name="ClientIdEnforcementOnRegularTest.clientIdEnforcementPolicyOnRegularEndpointUsingGet" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -948,38 +1010,38 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="969" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="974" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39977974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32807216" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276644" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32807216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3356009" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22921109" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32879817" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39795917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -988,7 +1050,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Scenario.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -997,55 +1067,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/cors/CorsBase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/analytics/AnalyticsBase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/pingfederate/RateLimitSlaPfOnApikitTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaOnRegularTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/baseline/RateLimitOnApikitTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaBase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaWithCredentialsFromPayloadOnJerseyTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaWithNewSlaOnRegularTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/pingfederate/RateLimitSlaPfBase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaOnApikitTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/sla/RateLimitSlaUsingClusterOnRegularTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/ratelimit/baseline/RateLimitBase.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/HttpVerb.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/OpenAm.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/oauth/OpenAm.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/Aes.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/OauthUtils.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/PingFederate.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/oauth/TokenData.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/SoapHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/analytics/AnalyticsWithClientIdOnApikitTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/ExecuteJMeterTestPlan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="43" column="2" lean-forward="false" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/cloudhub/client/api/CloudHubDomainConnectionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/MuleCollector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="148" column="65" lean-forward="false" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/cloudhub/client/api/CloudHubDomainConnectionImpl.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/src.zip!/java/lang/Runtime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-92">
@@ -1078,191 +1106,265 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Runtime.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/analytics/data/v2/AnalyticsData.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/cloudhub/client/api/CloudHubConnectionI.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/cloudhub/client/api/CloudHubConnectionImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/TestExclusionListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/RuntimeVersion.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/Requires.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/RuntimeVersions.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/TimeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3172">
-          <caret line="144" column="30" lean-forward="false" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#10503#0" expanded="false" />
-            <element signature="e#9103#9104#0" expanded="false" />
-            <element signature="e#9133#9134#0" expanded="false" />
-            <element signature="e#9173#9174#0" expanded="false" />
-            <element signature="e#9208#9209#0" expanded="false" />
-            <element signature="e#9248#9249#0" expanded="false" />
-            <element signature="e#9284#9285#0" expanded="false" />
-            <element signature="e#9322#9323#0" expanded="false" />
-            <element signature="e#9356#9357#0" expanded="false" />
-            <element signature="e#9406#9407#0" expanded="false" />
-            <element signature="e#9444#9445#0" expanded="false" />
-            <element signature="e#9481#9482#0" expanded="false" />
-            <element signature="e#9512#9513#0" expanded="false" />
-            <element signature="e#9561#9562#0" expanded="false" />
-            <element signature="e#9606#9607#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="156">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/FunctionalUtil.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.5.2/testng-6.5.2-sources.jar!/org/testng/internal/ClassHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="103" column="23" lean-forward="false" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#13537#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#2618#2619#0" expanded="false" />
-            <element signature="e#2653#2654#0" expanded="false" />
-            <element signature="e#8519#8520#0" expanded="false" />
-            <element signature="e#8573#8574#0" expanded="false" />
-            <element signature="e#11054#11055#0" expanded="false" />
-            <element signature="e#11096#11097#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/analytics/data/v2/AnalyticsData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="9698">
+          <caret line="397" column="0" lean-forward="false" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Scenario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
-          <caret line="64" column="20" lean-forward="false" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        <state relative-caret-position="936">
+          <caret line="54" column="40" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="40" />
           <folding>
-            <marker date="1486488127000" expanded="true" signature="3514:3696" ph="..." />
+            <element signature="e#1593#1594#0" expanded="false" />
+            <element signature="e#1641#1642#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementBase.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/RuntimeLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="4186">
+          <caret line="187" column="76" lean-forward="false" selection-start-line="187" selection-start-column="76" selection-end-line="187" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Runtime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Platform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="32" column="74" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3250">
+          <caret line="139" column="10" lean-forward="true" selection-start-line="139" selection-start-column="10" selection-end-line="139" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.5.2/testng-6.5.2-sources.jar!/org/testng/internal/Invoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="1218" column="0" lean-forward="false" selection-start-line="1218" selection-start-column="0" selection-end-line="1218" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.5.2/testng-6.5.2-sources.jar!/org/testng/internal/TestMethodWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.5.2/testng-6.5.2-sources.jar!/org/testng/TestRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="767" column="0" lean-forward="false" selection-start-line="767" selection-start-column="0" selection-end-line="767" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/mulesoft/anypoint/api-platform-client/0.1-SNAPSHOT/api-platform-client-0.1-SNAPSHOT-sources.jar!/com/mulesoft/anypoint/client/PlatformManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="151" column="31" lean-forward="false" selection-start-line="151" selection-start-column="31" selection-end-line="151" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/mulesoft/anypoint/api-platform-client/0.1-SNAPSHOT/api-platform-client-0.1-SNAPSHOT-sources.jar!/com/mulesoft/anypoint/client/entity/ApiData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding>
+            <element signature="e#8438#8439#0" expanded="false" />
+            <element signature="e#8479#8480#0" expanded="false" />
+            <element signature="e#8516#8517#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/mulesoft/anypoint/api-platform-client/0.1-SNAPSHOT/api-platform-client-0.1-SNAPSHOT-sources.jar!/com/mulesoft/anypoint/client/PlatformManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="610" column="0" lean-forward="false" selection-start-line="610" selection-start-column="0" selection-end-line="610" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="622" column="0" lean-forward="false" selection-start-line="622" selection-start-column="0" selection-end-line="622" selection-end-column="0" />
+          <folding>
+            <element signature="e#22821#22822#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/mulesoft/anypoint/api-platform-client/0.1-SNAPSHOT/api-platform-client-0.1-SNAPSHOT-sources.jar!/com/mulesoft/anypoint/client/util/FunctionalUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="288" column="0" lean-forward="false" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmeter.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parameters.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.jtl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/borrar">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api-platform-load-testing.iws">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8936">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/MasterResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/Clock.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/MuleCollector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="511">
+          <caret line="148" column="65" lean-forward="false" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/TimeFrame.java">
+    <entry file="file://$PROJECT_DIR$/example.jmx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/cloudhub/client/api/CloudHubConnectionI.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/misc/FunctionalUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="364">
+          <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/cloudhub/client/api/CloudHubConnectionImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/TestExclusionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/RuntimeVersion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/Requires.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/exclusion/RuntimeVersions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="234">
+          <caret line="26" column="75" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Characteristic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-676">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state relative-caret-position="208">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/RuntimeLocation.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/instance/Clock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="200" column="13" lean-forward="true" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
+        <state relative-caret-position="208">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/setup/environment/Platform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6047">
-          <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/MasterResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementOnRegularTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7072">
-          <caret line="272" column="5" lean-forward="false" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+        <state relative-caret-position="1447">
+          <caret line="131" column="9" lean-forward="false" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
           <folding>
-            <element signature="e#0#21917#0" expanded="true" />
+            <element signature="e#0#7742#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <marker date="1486489980000" expanded="true" signature="1632:2055" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="2105:2240" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="2501:6804" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="7023:11316" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="11550:15968" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="16135:19674" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="19878:21568" ph="{...}" />
-            <marker date="1486489980000" expanded="true" signature="21641:21914" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mulesoft/performance/jmeter/JMeterTestPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="93" column="18" lean-forward="false" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2541#2558#0" expanded="true" />
+            <element signature="e#2799#2815#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1294,5 +1396,9 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="-Dportal_env=parametric_org -Dgateway_env=local -Denv.cloudhub=qa2_gateway_382 -Dtest=ClientIdEnforcementOnRegularTest#clientIdEnforcementPolicyOnRegularEndpointUsingGet -Dbase.organization.characteristics=ping_federate_organization -Dbase.organization.owner.password='federated_external' -Dbase.organization.owner.username='federated_external' -Dbase.url.contract.cache.service='https://qax.anypoint.mulesoft.com/apigateway/ccs' -Dbase.url.core.services='https://qax.anypoint.mulesoft.com/accounts' -Dbase.url.platform='https://qax.anypoint.mulesoft.com/apiplatform'" />
   </component>
 </project>
