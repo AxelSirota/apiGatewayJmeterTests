@@ -8,10 +8,13 @@ import org.apache.jmeter.testelement.ThreadListener;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
 
+import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -28,12 +31,15 @@ public class MuleCollector extends AbstractListenerElement implements SampleList
     private AtomicInteger finishedThreads = new AtomicInteger(0);
     private AtomicInteger startedThreads = new AtomicInteger(0);
     private int expectedThreads = 1;
+    private String logFile;
     private HashMap<String, Long> requestSizes = new HashMap<String, Long>();
     private long finishTimeInMillis = 0;
     private Thread sorter;
+    private HashMap<String, Double> slaResults;
 
-    MuleCollector(int expectedThreads){
+    MuleCollector(int expectedThreads, String logFile){
         this.expectedThreads = expectedThreads;
+        this.logFile = logFile;
     }
 
     //TODO: figure out a way to get this information programmatically instead of an user entry.
@@ -53,7 +59,7 @@ public class MuleCollector extends AbstractListenerElement implements SampleList
             long latency = result.getEndTime() - result.getStartTime();
             String threadName = result.getThreadName();
 
-            int bytes = result.getBytes();
+            long bytes = result.getBytesAsLong();
 
             if (responseTimes.containsKey(threadName) ) {
                 responseTimes.get(threadName).add(latency);
@@ -146,22 +152,50 @@ public class MuleCollector extends AbstractListenerElement implements SampleList
         double failPercentage = 100 * failedReq.intValue() * 1.0 /totalReq;
         double avgLatency = latencySum * 1.0 /totalReq;
 
-        System.out.println("MULE TotalTime " + totalTimeInSeconds);
-        System.out.println("MULE ExpectedThreads " + expectedThreads);
-        System.out.println("MULE StartedThreads " + startedThreads);
-        System.out.println("MULE StoppedThreads " + finishedThreads);
-        System.out.println("MULE Requests " + totalReq);
-        System.out.println("MULE Throughput " + tps);
-        System.out.println("MULE BytesPerSecond " + toPrintableBytes(bytesPerSecond));
-        System.out.println("MULE BytesPerRequestAvg " + toPrintableBytes(avgBytesPerRequest));
-        System.out.println("MULE Error% " + failPercentage);
-        System.out.println("MULE AvgLatency " + avgLatency);
-        System.out.println("MULE MinLatency " + this.getPercentile(0));
-        System.out.println("MULE 50thPercentile " + this.getPercentile(0.50));
-        System.out.println("MULE 90thPercentile " + this.getPercentile(0.90));
-        System.out.println("MULE 95thPercentile " + this.getPercentile(0.95));
-        System.out.println("MULE 99thPercentile " + this.getPercentile(0.99));
-        System.out.println("MULE MaxLatency " + this.getPercentile(1));
+        this.slaResults = new HashMap<String, Double>();
+        this.slaResults.put("TotalTime" , totalTimeInSeconds);
+        this.slaResults.put("ExpectedThreads" , ((double) expectedThreads));
+        this.slaResults.put("StartedThreads" , startedThreads.doubleValue());
+        this.slaResults.put("StoppedThreads" , finishedThreads.doubleValue());
+        this.slaResults.put("Requests" , ((double) totalReq));
+        this.slaResults.put("Throughput" , tps);
+        this.slaResults.put("BytesPerSecond" , bytesPerSecond);
+        this.slaResults.put("BytesPerRequestAvg " , avgBytesPerRequest);
+        this.slaResults.put("Error% " , failPercentage);
+        this.slaResults.put("AvgLatency " , avgLatency);
+        this.slaResults.put("MinLatency " , ((double) this.getPercentile(0)));
+        this.slaResults.put("50thPercentile " , ((double) this.getPercentile(0.50)));
+        this.slaResults.put("90thPercentile " , ((double) this.getPercentile(0.90)));
+        this.slaResults.put("95thPercentile " , ((double) this.getPercentile(0.95)));
+        this.slaResults.put("99thPercentile " , ((double) this.getPercentile(0.99)));
+        this.slaResults.put("MaxLatency " , ((double) this.getPercentile(1)));
+
+        try {
+            Charset utf8 = StandardCharsets.UTF_8;
+            List<String> lines = Arrays.asList("MULE TotalTime" + totalTimeInSeconds,
+                    "MULE ExpectedThreads " + expectedThreads,
+                    "MULE StartedThreads " + startedThreads,
+                    "MULE StoppedThreads " + finishedThreads,
+                    "MULE Requests " + totalReq,
+                    "MULE Throughput " + tps,
+                    "MULE BytesPerSecond " + toPrintableBytes(bytesPerSecond),
+                    "MULE BytesPerRequestAvg " + toPrintableBytes(avgBytesPerRequest),
+                    "MULE Error% " + failPercentage,
+                    "MULE AvgLatency " + avgLatency,
+                    "MULE MinLatency " + this.getPercentile(0),
+                    "MULE 50thPercentile " + this.getPercentile(0.50),
+                    "MULE 90thPercentile " + this.getPercentile(0.90),
+                    "MULE 95thPercentile " + this.getPercentile(0.95),
+                    "MULE 99thPercentile " + this.getPercentile(0.99),
+                    "MULE MaxLatency " + this.getPercentile(1));
+            Files.write(Paths.get(this.logFile),lines, utf8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public HashMap<String, Double> getSlaResults(){
+        return this.slaResults;
     }
 
     private String toPrintableBytes(double bytes){

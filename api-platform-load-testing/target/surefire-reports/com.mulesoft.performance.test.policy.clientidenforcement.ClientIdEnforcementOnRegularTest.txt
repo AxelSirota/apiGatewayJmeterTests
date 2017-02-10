@@ -1,10 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.mulesoft.performance.test.policy.clientidenforcement.ClientIdEnforcementOnRegularTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1,315.659 sec <<< FAILURE!
-clientIdEnforcementAsBasicAuth(com.mulesoft.performance.test.policy.clientidenforcement.ClientIdEnforcementOnRegularTest)  Time elapsed: 149.597 sec  <<< FAILURE!
-java.lang.AssertionError: http://54.83.54.127:8887/api endpoint does not meet expected condition (expected HTTP code: 200).
-	at org.testng.Assert.fail(Assert.java:89)
-	at com.mulesoft.performance.test.policy.clientidenforcement.ClientIdEnforcementBase.waitUntilSuccessByBasicAuth(ClientIdEnforcementBase.java:101)
-	at com.mulesoft.performance.test.policy.clientidenforcement.ClientIdEnforcementOnRegularTest.clientIdEnforcementAsBasicAuth(ClientIdEnforcementOnRegularTest.java:92)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 97.555 sec

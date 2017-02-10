@@ -1,0 +1,16 @@
+MULE TotalTime24.099
+MULE ExpectedThreads 10
+MULE StartedThreads 10
+MULE StoppedThreads 10
+MULE Requests 1320
+MULE Throughput 54.77405701481389
+MULE BytesPerSecond 71.78396925183617 KB
+MULE BytesPerRequestAvg 1.310546875 KB
+MULE Error% 0.0
+MULE AvgLatency 182.52424242424243
+MULE MinLatency 154
+MULE 50thPercentile 170
+MULE 90thPercentile 183
+MULE 95thPercentile 335
+MULE 99thPercentile 353
+MULE MaxLatency 367

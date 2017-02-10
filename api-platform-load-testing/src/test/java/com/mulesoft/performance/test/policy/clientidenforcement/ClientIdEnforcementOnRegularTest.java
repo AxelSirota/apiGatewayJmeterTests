@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.mulesoft.anypoint.client.util.FunctionalUtil.logResponseAndGetContent;
@@ -27,7 +28,7 @@ import static com.mulesoft.anypoint.client.util.MiscUtil.verifyCall;
 import static com.mulesoft.performance.misc.FunctionalUtil.*;
 
 
-@Test(singleThreaded=true, groups = { "smoke_qa" , "smoke_stg", "smoke_prod" })
+@Test(singleThreaded=true)
 public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
 
     private String endpoint;
@@ -37,16 +38,13 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
 
     private GrantType[] grantTypes = {GrantType.AUTHORIZATION_CODE, GrantType.IMPLICIT, GrantType.PASSWORD};
 
-    // TODO(nahuel): For non federated orgs, consider using no grant types also.
-
     @BeforeClass
     public void setup() {
-//        endpoint = "http://23.21.206.49:8887/api";//"http://0.0.0.0:8081/gateway/clientidenforcement/path1");
-        endpoint = "http://54.83.54.127:8887/api";//"http://0.0.0.0:8081/gateway/clientidenforcement/path1");
-        apiData = ApiData.getApiCredentials(platformEnvironment, "PabloTestAPI", "1.0");//, API_NAME, API_VERSION_REGULAR);
+//        endpoint = "http://23.21.206.49:8887/api";
+        endpoint = "http://54.83.54.127:8887/api";
+        apiData = ApiData.getApiCredentials(platformEnvironment, "PabloTestAPI", "1.0");
         platformManager.resetApi(apiData);
         platformManager.removeAllApplicationsWithPrefix(APP_NAME_PREFIX);
-
         waitUntilEndpointCondition(endpoint, HttpStatus.SC_OK);
     }
 
@@ -71,13 +69,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         waitUntilEndpointCondition(endpoint, HttpStatus.SC_FORBIDDEN);
         waitUntilSuccessByQuery(endpoint, appData);
         checkSuccessByQuery(endpoint, appData);
-        final JMeterTestPlan jmeter = new JMeterTestPlan(1, 1, 10, 8887, "54.83.54.127", "GET");
-        try {
-            jmeter.runJmeter(appData.getClientId(), appData.getClientSecretId());
-        } catch (Exception e) {
-            System.err.println("JmeterException: " + e.getMessage());
-        }
-
+        runJmeter(appData.getClientId(), appData.getClientSecretId(), "default");
         platformManager.revokeApplicationContract(apiData, appData.getContractId());
         waitUntilFailByQuery(endpoint, appData);
         checkForbiddenByQuery(endpoint, appData);
@@ -91,12 +83,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         waitUntilEndpointRestricted(endpoint);
         waitUntilSuccessByBasicAuth(endpoint, appData);
         checkSuccessByBasicAuth(endpoint, appData);
-        final JMeterTestPlan jmeter = new JMeterTestPlan(1, 1, 10, 8887, "54.83.54.127", "GET");
-        try {
-            jmeter.runJmeter(appData.getClientId(), appData.getClientSecretId());
-        } catch (Exception e) {
-            System.err.println("JmeterException: " + e.getMessage());
-        }
+        runJmeter(appData.getClientId(), appData.getClientSecretId(), "basicAuth");
         platformManager.revokeApplicationContract(apiData, appData.getContractId());
         waitUntilFailByBasicAuth(endpoint, appData);
         checkFailByBasicAuth(endpoint, appData);
@@ -124,13 +111,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         waitUntilSuccessByHeader(endpoint, applications.get(applications.size() - 1));
 
         LOG.info("About to check contract #" + applications.indexOf(applications.get(applications.size() - 1)) + ". Application: " + applications.get(applications.size() - 1));
-        final JMeterTestPlan jmeter = new JMeterTestPlan(1, 1, 10, 8887, "54.83.54.127", "GET");
-        try {
-            jmeter.runJmeter(applications.get(applications.size() - 1).getClientId(), applications.get(applications.size() - 1).getClientSecretId());
-        } catch (Exception e) {
-            System.err.println("JmeterException: " + e.getMessage());
-        }
-
+        runJmeter(applications.get(applications.size() - 1).getClientId(), applications.get(applications.size() - 1).getClientSecretId(), "contracts");
         for (ApplicationData application : applications) {
             LOG.info("About to revoke contract #" + applications.indexOf(application) + ". Application: " + application);
             platformManager.revokeApplicationContract(apiData, application.getContractId());
@@ -145,4 +126,46 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         }
         return stringBuilder.toString();
     }
+
+    private void runJmeter(String clientId, String clientSecretId, String test) {
+        final JMeterTestPlan jmeterEngine = new JMeterTestPlan("/usr/local/Cellar/jmeter/3.1/libexec");
+        jmeterEngine.setHTTPParameters(8887, "54.83.54.127", "GET", "/api?client_id=" + clientId + "&client_secret=" + clientSecretId);
+        jmeterEngine.setThreadGroupParameters(10, 1, 25);
+        jmeterEngine.setHeader("Content-Type", "text/plain");
+        jmeterEngine.setLoggingParameters("log/" + test + ".results.jtl", "log/" + test + ".testPlan.jmx");
+        try {
+            HashMap<String, Double> results = jmeterEngine.runJmeter();
+            checkSLA(results);
+        } catch (Exception e) {
+            System.err.println("JmeterException: " + e.getMessage());
+        }
+    }
+
+    private void checkSLA(HashMap<String, Double> results) {
+        HashMap<String, Double> slas = new HashMap<String, Double>();
+        slas.put("TotalTime" , ((double) 180));
+        slas.put("ExpectedThreads" , ((double) 10));
+        slas.put("StartedThreads" , ((double) 10));
+        slas.put("StoppedThreads" , ((double) 10));
+        slas.put("Requests" , ((double) 1200));
+        slas.put("Throughput" , ((double) 50));
+        slas.put("BytesPerSecond" , ((double) 1));
+        slas.put("BytesPerRequestAvg " , ((double) 1));
+        slas.put("Error% " , 0.1);
+        slas.put("AvgLatency " , ((double) 50));
+        slas.put("MinLatency " , ((double) 1));
+        slas.put("50thPercentile " , ((double) 2));
+        slas.put("90thPercentile " , ((double) 3));
+        slas.put("95thPercentile " , ((double) 4));
+        slas.put("99thPercentile " , ((double) 5));
+        slas.put("MaxLatency " , ((double) 6));
+
+    for (String key : slas.keySet()) {
+        System.out.println("INFO: " + key);
+        if (slas.get(key) > results.get(key)) {
+            LOG.error("SLAs for " + key + " is not met, got " + results.get(key) + " while the SLA was " + slas.get(key));
+        }
+    }
+    }
+
 }

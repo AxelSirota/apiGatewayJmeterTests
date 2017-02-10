@@ -9,8 +9,6 @@
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <org.apache.jorphan.collections.HashTree>
-      <com.mulesoft.performance.jmeter.MuleCollector/>
-      <org.apache.jorphan.collections.HashTree/>
       <ResultCollector>
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
@@ -44,13 +42,13 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">example.jtl</stringProp>
+        <stringProp name="filename">log/default.results.jtl</stringProp>
       </ResultCollector>
       <org.apache.jorphan.collections.HashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
         <intProp name="ThreadGroup.num_threads">10</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
-        <longProp name="ThreadGroup.duration">10</longProp>
+        <longProp name="ThreadGroup.duration">25</longProp>
         <longProp name="ThreadGroup.delay">0</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -67,7 +65,7 @@
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <stringProp name="HTTPSampler.domain">54.83.54.127</stringProp>
           <intProp name="HTTPSampler.port">8887</intProp>
-          <stringProp name="HTTPSampler.path">/api?client_id=a170a809f833462b88913237274af748&amp;client_secret=7FeECdD678ed4B32bD4A069F128CE42a</stringProp>
+          <stringProp name="HTTPSampler.path">/api?client_id=f229737dd71b423fbcbaf68f883a7570&amp;client_secret=578E1FF0286B434e98347117561a58B5</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -88,6 +86,8 @@
           <org.apache.jorphan.collections.HashTree/>
         </org.apache.jorphan.collections.HashTree>
       </org.apache.jorphan.collections.HashTree>
+      <com.mulesoft.performance.jmeter.MuleCollector/>
+      <org.apache.jorphan.collections.HashTree/>
     </org.apache.jorphan.collections.HashTree>
   </org.apache.jorphan.collections.HashTree>
 </jmeterTestPlan>

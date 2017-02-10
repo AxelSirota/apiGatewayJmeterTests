@@ -27,35 +27,36 @@ import org.apache.jorphan.collections.HashTree;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class JMeterTestPlan {
 
-    final private Integer threadCount;
-    final private Integer rampUpTime;
-    final private Integer durationTime;
-    final private Integer port;
-    final private String hostIP;
-    final private String method;
-    final private File jmeterProperties;
-    final private String jMeterHome;
-    public StandardJMeterEngine engine;
+    private HashMap<String, String> HTTPParameters;
+    private HashMap<String, String> logParameters;
+    private HashMap<String, Integer> ThreadParameters;
+    final private Queue<Header> headerQueue;
+    private Integer port;
+    private File jmeterProperties;
+    private String jMeterHome;
+    private StandardJMeterEngine engine;
+    private  HTTPSamplerProxy proxyToHit;
+    private LoopController loopController;
+    private ThreadGroup threadGroup;
+    private TestPlan testPlan;
+    private HeaderManager headerManager;
 
-    public JMeterTestPlan(Integer threadCount, Integer rampUpTime, Integer durationTime, Integer port, String hostIP, String method) {
-        this.threadCount = threadCount;
-        this.rampUpTime = rampUpTime;
-        this.durationTime = durationTime;
-        this.port = port;
-        this.hostIP = hostIP;
-        this.method = method;
-        this.jMeterHome = "/usr/local/Cellar/jmeter/3.1/libexec";
+    public JMeterTestPlan(String jMeterHome) {
+        this.jMeterHome = jMeterHome;
         this.jmeterProperties = new File(this.jMeterHome+ "/bin/jmeter.properties");
+        this.initializeEngine();
+        this.headerQueue = new LinkedList<Header>();
     }
 
-    public void initializeEngine() {
+    private void initializeEngine() {
         if (!this.jmeterProperties.exists()) {
             System.exit(1);
         }
-
         this.engine = new StandardJMeterEngine();
         JMeterUtils.setJMeterHome(this.jMeterHome);
         JMeterUtils.loadJMeterProperties(this.jmeterProperties.getPath());
@@ -63,95 +64,116 @@ public class JMeterTestPlan {
         JMeterUtils.initLocale();
     }
 
-    public void runJmeter(String clientId, String clientSecret ) throws Exception {
-        HashMap<String, Integer> ThreadParameters = new HashMap<String, Integer>();
-        ThreadParameters.put("Threads", this.threadCount);
-        ThreadParameters.put("RampUp", this.rampUpTime);
-        ThreadParameters.put("Duration",this.durationTime);
+    public void setHTTPParameters(Integer port, String hostIP, String method, String path) {
+        this.HTTPParameters = new HashMap<String, String>();
+        this.HTTPParameters.put("Server", hostIP);
+        this.HTTPParameters.put("UrlPath", path);
+        this.HTTPParameters.put("Method", method);
+        this.port = port;
+    }
 
-        HashMap<String, String> HTTPParameters = new HashMap<String, String>();
-        HTTPParameters.put("Server", this.hostIP);
-        HTTPParameters.put("UrlPath", "/api?client_id=" + clientId + "&client_secret=" + clientSecret);
-        HTTPParameters.put("Method", this.method);
+    public void setThreadGroupParameters (Integer threadCount, Integer rampUpTime, Integer durationTime) {
+        this.ThreadParameters = new HashMap<String, Integer>();
+        this.ThreadParameters.put("Threads", threadCount);
+        this.ThreadParameters.put("RampUp", rampUpTime);
+        this.ThreadParameters.put("Duration",durationTime);
+    }
 
+    public void setLoggingParameters (String logName, String jmxName) {
+        this.logParameters = new HashMap<String, String>();
+        this.logParameters.put("LogName", logName);
+        this.logParameters.put("JMXName", jmxName);
+    }
 
+    private void setHTTPProxy() {
+        this.proxyToHit = new HTTPSamplerProxy();
+        this.proxyToHit.setName("HTTP Request");
+        this.proxyToHit.setEnabled(true);
+        this.proxyToHit.setPostBodyRaw(true);
+        this.proxyToHit.setDomain(this.HTTPParameters.get("Server"));
+        this.proxyToHit.setPort(this.port);
+        this.proxyToHit.setPath(this.HTTPParameters.get("UrlPath"));
+        this.proxyToHit.setMethod(this.HTTPParameters.get("Method"));
+        this.proxyToHit.setFollowRedirects(true);
+        this.proxyToHit.setAutoRedirects(false);
+        this.proxyToHit.setUseKeepAlive(true);
+        this.proxyToHit.setDoMultipartPost(false);
+        this.proxyToHit.setImplementation("HttpClient4");
+        this.proxyToHit.setMonitor(false);
+        this.proxyToHit.setProperty(TestElement.TEST_CLASS, HTTPSamplerProxy.class.getName());
+        this.proxyToHit.setProperty(TestElement.GUI_CLASS, HttpTestSampleGui.class.getName());
+    }
 
+    private void setLoopController() {
+        // Loop Controller
+        this.loopController = new LoopController();
+        this.loopController.initialize();
+        this.loopController.setLoops(-1);
+        this.loopController.setEnabled(true);
+        this.loopController.setProperty(TestElement.TEST_CLASS, LoopController.class.getName());
+        this.loopController.setProperty(TestElement.GUI_CLASS, LoopControlPanel.class.getName());
+        this.loopController.setName("Loop Controller");
+    }
 
+    private void setThreadGroup() {
+        this.threadGroup = new ThreadGroup();
+        this.threadGroup.setName("Thread Group");
+        this.threadGroup.setNumThreads(ThreadParameters.get("Threads"));
+        this.threadGroup.setRampUp(ThreadParameters.get("RampUp"));
+        this.threadGroup.setDuration(ThreadParameters.get("Duration"));
+        this.threadGroup.setDelay(0);
+        this.threadGroup.setScheduler(true);
+        this.threadGroup.setEnabled(true);
+        this.threadGroup.setProperty("ThreadGroup.on_sample_error", "continue");
+        this.setLoopController();
+        this.threadGroup.setSamplerController(this.loopController);
+        this.threadGroup.setProperty(TestElement.TEST_CLASS, ThreadGroup.class.getName());
+        this.threadGroup.setProperty(TestElement.GUI_CLASS, ThreadGroupGui.class.getName());
+    }
+
+    private void setTestPlan() {
+        // Test Plan
+        this.testPlan = new TestPlan("Post Test Plan");
+        this.testPlan.setEnabled(true);
+        this.testPlan.setProperty(TestElement.TEST_CLASS, TestPlan.class.getName());
+        this.testPlan.setProperty(TestElement.GUI_CLASS, TestPlanGui.class.getName());
+        this.testPlan.setUserDefinedVariables((Arguments) new ArgumentsPanel().createTestElement());
+        this.testPlan.setFunctionalMode(false);
+        this.testPlan.setSerialized(false);
+    }
+
+    public void setHeader(String name, String value) {
+        Header header = new Header();
+        header.setName(name);
+        header.setValue(value);
+        this.headerQueue.add(header);
+    }
+
+    private void setHeaderManager() {
+        // Set headers
+        this.headerManager = new HeaderManager();
+        this.headerManager.setProperty(TestElement.TEST_CLASS, TestPlan.class.getName());
+        this.headerManager.setProperty(TestElement.GUI_CLASS, TestPlanGui.class.getName());
+        this.headerManager.setName("HTTP Header Manager");
+        this.headerManager.setEnabled(true);
+        while (!this.headerQueue.isEmpty()) {
+            this.headerManager.add(this.headerQueue.remove());
+        }
+    }
+
+    public HashMap<String, Double> runJmeter() throws Exception {
 
         // JMeter Test Plan, basically JOrphan HashTree
+        this.setHTTPProxy();
+        this.setThreadGroup();
+        this.setTestPlan();
+        this.setHeaderManager();
+
+
         HashTree testPlanTree = new HashTree();
-
-        HTTPSamplerProxy proxyToHit = new HTTPSamplerProxy();
-        proxyToHit.setName("HTTP Request");
-        proxyToHit.setEnabled(true);
-        proxyToHit.setPostBodyRaw(true);
-        proxyToHit.setDomain(HTTPParameters.get("Server"));
-        proxyToHit.setPort(this.port);
-        proxyToHit.setPath(HTTPParameters.get("UrlPath"));
-        proxyToHit.setMethod(HTTPParameters.get("Method"));
-        proxyToHit.setFollowRedirects(true);
-        proxyToHit.setAutoRedirects(false);
-        proxyToHit.setUseKeepAlive(true);
-        proxyToHit.setDoMultipartPost(false);
-        proxyToHit.setImplementation("HttpClient4");
-        proxyToHit.setMonitor(false);
-        proxyToHit.setProperty(TestElement.TEST_CLASS, HTTPSamplerProxy.class.getName());
-        proxyToHit.setProperty(TestElement.GUI_CLASS, HttpTestSampleGui.class.getName());
-
-        // Loop Controller
-        LoopController loopController = new LoopController();
-        loopController.initialize();
-        loopController.setLoops(-1);
-        loopController.setEnabled(true);
-        loopController.setProperty(TestElement.TEST_CLASS, LoopController.class.getName());
-        loopController.setProperty(TestElement.GUI_CLASS, LoopControlPanel.class.getName());
-        loopController.setName("Loop Controller");
-
-        // Thread Group
-        ThreadGroup threadGroup = new ThreadGroup();
-        threadGroup.setName("Thread Group");
-        threadGroup.setNumThreads(ThreadParameters.get("Threads"));
-        threadGroup.setRampUp(ThreadParameters.get("RampUp"));
-        threadGroup.setDuration(ThreadParameters.get("Duration"));
-        threadGroup.setDelay(0);
-        threadGroup.setScheduler(true);
-        threadGroup.setEnabled(true);
-        threadGroup.setProperty("ThreadGroup.on_sample_error", "continue");
-
-
-        threadGroup.setSamplerController(loopController);
-
-        threadGroup.setProperty(TestElement.TEST_CLASS, ThreadGroup.class.getName());
-        threadGroup.setProperty(TestElement.GUI_CLASS, ThreadGroupGui.class.getName());
-
-        // Test Plan
-        TestPlan testPlan = new TestPlan("Post Test Plan");
-        testPlan.setEnabled(true);
-        testPlan.setProperty(TestElement.TEST_CLASS, TestPlan.class.getName());
-        testPlan.setProperty(TestElement.GUI_CLASS, TestPlanGui.class.getName());
-        testPlan.setUserDefinedVariables((Arguments) new ArgumentsPanel().createTestElement());
-        testPlan.setFunctionalMode(false);
-        testPlan.setSerialized(false);
-
-        // Set headers
-
-        HeaderManager headerManager = new HeaderManager();
-        headerManager.setProperty(TestElement.TEST_CLASS, TestPlan.class.getName());
-        headerManager.setProperty(TestElement.GUI_CLASS, TestPlanGui.class.getName());
-        headerManager.setName("HTTP Header Manager");
-        headerManager.setEnabled(true);
-
-        Header header = new Header();
-        header.setName("Content-Type");
-        header.setValue("text/plain");
-
-        headerManager.add(header);
-
-        // Construct Test Plan from previously initialized elements
-
-        testPlanTree.add(testPlan);
-        HashTree threadGroupHashTree = testPlanTree.add(testPlan, threadGroup);
-        threadGroupHashTree.add(proxyToHit, headerManager);
+        testPlanTree.add(this.testPlan);
+        HashTree threadGroupHashTree = testPlanTree.add(this.testPlan, this.threadGroup);
+        threadGroupHashTree.add(this.proxyToHit, headerManager);
 
         Summariser summer = null;
         String summariserName = JMeterUtils.getPropDefault("summariser.name", "summary");
@@ -160,19 +182,20 @@ public class JMeterTestPlan {
         }
 
         // Store execution results into a .jtl file
-        String logFile = "example.jtl";
+        String logFile = this.logParameters.get("LogName");
         ResultCollector logger = new ResultCollector(summer);
         logger.setFilename(logFile);
         testPlanTree.add(testPlanTree.getArray()[0], logger);
 
         // Collector for plugin
 //
-        MuleCollector collector = new MuleCollector(10);
+        MuleCollector collector = new MuleCollector(ThreadParameters.get("Threads"), this.logParameters.get("LogName"));
         testPlanTree.add(testPlanTree.getArray()[0],collector);
 
         // Run Test Plan
         this.engine.configure(testPlanTree);
-        SaveService.saveTree(testPlanTree, new FileOutputStream("example.jmx"));
+        SaveService.saveTree(testPlanTree, new FileOutputStream(this.logParameters.get("JMXName")));
         this.engine.run();
+        return collector.getSlaResults();
     }
 }

@@ -104,6 +104,12 @@
     <name>api-platform-load-testing</name>
     <url>http://maven.apache.org</url>
     <build>
+        <resources>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>

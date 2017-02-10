@@ -2,7 +2,6 @@ com/mulesoft/performance/setup/environment/RuntimeLocation$8.class
 com/mulesoft/performance/setup/instance/TimeFrame.class
 com/mulesoft/performance/test/MasterResource.class
 com/mulesoft/performance/setup/environment/RuntimeLocation$13.class
-com/mulesoft/performance/jmeter/ExecuteJMeterTestPlan.class
 com/mulesoft/performance/setup/environment/Runtime$Raml.class
 com/mulesoft/performance/setup/environment/RuntimeLocation$3.class
 com/mulesoft/performance/setup/environment/RuntimeLocation$10.class
@@ -10,6 +9,7 @@ com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementBase
 com/mulesoft/performance/setup/environment/RuntimeLocation$5.class
 com/mulesoft/performance/setup/environment/Scenario.class
 com/mulesoft/performance/misc/FunctionalUtil.class
+com/mulesoft/performance/jmeter/JMeterTestPlan.class
 com/mulesoft/performance/setup/environment/RuntimeLocation$12.class
 com/mulesoft/performance/setup/environment/Characteristic.class
 com/mulesoft/performance/setup/environment/Platform$1.class

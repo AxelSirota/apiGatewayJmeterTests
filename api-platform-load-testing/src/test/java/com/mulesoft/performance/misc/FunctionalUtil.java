@@ -50,8 +50,8 @@ public final class FunctionalUtil {
     private static final Random RANDOM = new Random();
     private static final char[] CHARS = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
-    private static final long TIMEOUT_IN_MILLIS = 120000;
-    public static final long WAIT_STATE_BOUNDARY_IN_MILLIS = 10000;
+    private static final long TIMEOUT_IN_MILLIS = 60000;
+    public static final long WAIT_STATE_BOUNDARY_IN_MILLIS = 1000;
 
     private FunctionalUtil() {
     }

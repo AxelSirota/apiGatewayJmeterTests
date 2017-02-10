@@ -1,5 +1,4 @@
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/setup/environment/Characteristic.java
-/Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/jmeter/ExecuteJMeterTestPlan.java
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/setup/environment/Platform.java
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/setup/environment/Scenario.java
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/setup/instance/Clock.java
@@ -10,4 +9,5 @@
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/test/policy/clientidenforcement/ClientIdEnforcementBase.java
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/setup/instance/TimeFrame.java
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/setup/environment/RuntimeLocation.java
+/Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/jmeter/JMeterTestPlan.java
 /Users/axelsirota/Performance/apiGatewayJmeterTests/api-platform-load-testing/src/test/java/com/mulesoft/performance/test/MasterResource.java
