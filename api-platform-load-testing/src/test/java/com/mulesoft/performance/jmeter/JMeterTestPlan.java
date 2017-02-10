@@ -169,11 +169,13 @@ public class JMeterTestPlan {
         this.setTestPlan();
         this.setHeaderManager();
 
-
+        HashTree requestHashTree = new HashTree();
+        requestHashTree.add(this.proxyToHit, this.headerManager);
         HashTree testPlanTree = new HashTree();
         testPlanTree.add(this.testPlan);
         HashTree threadGroupHashTree = testPlanTree.add(this.testPlan, this.threadGroup);
-        threadGroupHashTree.add(this.proxyToHit, headerManager);
+        threadGroupHashTree.add(requestHashTree);
+
 
         Summariser summer = null;
         String summariserName = JMeterUtils.getPropDefault("summariser.name", "summary");
@@ -185,12 +187,12 @@ public class JMeterTestPlan {
         String logFile = this.logParameters.get("LogName");
         ResultCollector logger = new ResultCollector(summer);
         logger.setFilename(logFile);
-        testPlanTree.add(testPlanTree.getArray()[0], logger);
+        threadGroupHashTree.add(threadGroupHashTree.getArray()[0], logger);
 
         // Collector for plugin
 //
         MuleCollector collector = new MuleCollector(ThreadParameters.get("Threads"), this.logParameters.get("LogName"));
-        testPlanTree.add(testPlanTree.getArray()[0],collector);
+        threadGroupHashTree.add(threadGroupHashTree.getArray()[0],collector);
 
         // Run Test Plan
         this.engine.configure(testPlanTree);

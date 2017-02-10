@@ -69,24 +69,10 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         waitUntilEndpointCondition(endpoint, HttpStatus.SC_FORBIDDEN);
         waitUntilSuccessByQuery(endpoint, appData);
         checkSuccessByQuery(endpoint, appData);
-        runJmeter(appData.getClientId(), appData.getClientSecretId(), "default");
+        runJmeterusingQuery(appData.getClientId(), appData.getClientSecretId(), "default");
         platformManager.revokeApplicationContract(apiData, appData.getContractId());
         waitUntilFailByQuery(endpoint, appData);
         checkForbiddenByQuery(endpoint, appData);
-    }
-
-    @Test(description= "Check Client ID enforcement policy passing client ID and Secret as Basic Auth credentials")
-    public void clientIdEnforcementAsBasicAuth() {
-        logResponseAndGetContent(verifyCall(policyManager.applyClientIdEnforcementPolicyAsBasicAuth(apiData), HttpStatus.SC_CREATED, "Create Policy"));
-
-        final ApplicationData appData = platformManager.createApplicationClientWithPrefixAndRegister(APP_NAME_PREFIX, REDIRECT_URI, grantTypes, apiData);
-        waitUntilEndpointRestricted(endpoint);
-        waitUntilSuccessByBasicAuth(endpoint, appData);
-        checkSuccessByBasicAuth(endpoint, appData);
-        runJmeter(appData.getClientId(), appData.getClientSecretId(), "basicAuth");
-        platformManager.revokeApplicationContract(apiData, appData.getContractId());
-        waitUntilFailByBasicAuth(endpoint, appData);
-        checkFailByBasicAuth(endpoint, appData);
     }
 
     @Test(description= "Check Client ID enforcement policy passing client ID and Secret as Basic Auth credentials to more than 100 client apps")
@@ -98,7 +84,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
 
         final List<ApplicationData> applications = new ArrayList<>();
         // Create *more than* 100 contracts.
-        final int appsToCreateAndRegister = 120;
+        final int appsToCreateAndRegister = 2;
         LOG.info(String.format("About to create and register %d client applications..", appsToCreateAndRegister));
         for (int i = 1; i <= appsToCreateAndRegister; i++) {
             applications.add(platformManager.createApplicationClientWithPrefixAndRegister(APP_NAME_PREFIX, REDIRECT_URI, grantTypes, apiData));
@@ -111,7 +97,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         waitUntilSuccessByHeader(endpoint, applications.get(applications.size() - 1));
 
         LOG.info("About to check contract #" + applications.indexOf(applications.get(applications.size() - 1)) + ". Application: " + applications.get(applications.size() - 1));
-        runJmeter(applications.get(applications.size() - 1).getClientId(), applications.get(applications.size() - 1).getClientSecretId(), "contracts");
+        runJmeterusingHeaders(applications.get(applications.size() - 1).getClientId(), applications.get(applications.size() - 1).getClientSecretId(), "contracts");
         for (ApplicationData application : applications) {
             LOG.info("About to revoke contract #" + applications.indexOf(application) + ". Application: " + application);
             platformManager.revokeApplicationContract(apiData, application.getContractId());
@@ -127,7 +113,7 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
         return stringBuilder.toString();
     }
 
-    private void runJmeter(String clientId, String clientSecretId, String test) {
+    private void runJmeterusingQuery(String clientId, String clientSecretId, String test) {
         final JMeterTestPlan jmeterEngine = new JMeterTestPlan("/usr/local/Cellar/jmeter/3.1/libexec");
         jmeterEngine.setHTTPParameters(8887, "54.83.54.127", "GET", "/api?client_id=" + clientId + "&client_secret=" + clientSecretId);
         jmeterEngine.setThreadGroupParameters(10, 1, 25);
@@ -140,6 +126,23 @@ public class ClientIdEnforcementOnRegularTest extends ClientIdEnforcementBase {
             System.err.println("JmeterException: " + e.getMessage());
         }
     }
+
+    private void runJmeterusingHeaders(String clientId, String clientSecret, String test) {
+        final JMeterTestPlan jmeterEngine = new JMeterTestPlan("/usr/lib/apache-jmeter-3.1");
+        jmeterEngine.setHTTPParameters(8887, "54.83.54.127", "GET", "/api");
+        jmeterEngine.setThreadGroupParameters(10, 1, 25);
+        jmeterEngine.setHeader("Content-Type", "text/plain");
+        jmeterEngine.setHeader("client_id", clientId);
+        jmeterEngine.setHeader("client_secret", clientSecret);
+        jmeterEngine.setLoggingParameters("log/" + test + ".results.jtl", "log/" + test + ".testPlan.jmx");
+        try {
+            HashMap<String, Double> results = jmeterEngine.runJmeter();
+            checkSLA(results);
+        } catch (Exception e) {
+            System.err.println("JmeterException: " + e.getMessage());
+        }
+    }
+
 
     private void checkSLA(HashMap<String, Double> results) {
         HashMap<String, Double> slas = new HashMap<String, Double>();
